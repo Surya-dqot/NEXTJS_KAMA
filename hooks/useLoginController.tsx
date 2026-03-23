@@ -102,7 +102,7 @@ export async function apiGet(endpoint: string, token: string,key:string) {
 }
 
 // ─── Save profile to Database ────────────────────────────────────────────────
-function saveToDatabase(profile: UserResponse, hostProfile: HostResponse) {
+export function saveToDatabase(profile: UserResponse, hostProfile?: HostResponse) {
   Database.onSetLoginUserId(profile?.user?.id ?? "");
   Database.onSetLoginType(profile?.user?.loginType ?? 0);
   Database.onSetVip(profile?.user?.isVip ?? false);

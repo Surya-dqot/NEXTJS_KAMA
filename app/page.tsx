@@ -6,11 +6,12 @@ import DoctorGrid from "@/components/home/Grid";
 import LoginModal from "@/components/home/LoginModal";
 import LoginSignupDetails from "@/components/home/LoginSignupDetails";
 import { useAuth } from "@/context/AuthContext";
+import { useInitAuth } from "@/hooks/useInitAuth";
 // import LoginSignupDetails from "@/components/home/LoginSignupDetails";
 
 export default function HomePage() {
+  useInitAuth()
   const { authSteps, setAuthSteps, signupData } = useAuth();
-
   useEffect(() => {
     console.log("CUrennnnnnnnnnnt value of this ", authSteps);
     console.log("CUrennnnnnnnnnnt value of SIgnUpData", signupData);

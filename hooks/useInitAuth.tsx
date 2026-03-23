@@ -4,7 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { setError, setLoading, setUser } from "@/redux/features/user/userSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { apiGet } from "./useLoginController";
+import { apiGet, saveToDatabase } from "./useLoginController";
 import { RootState } from "@/redux/store";
 import { Database } from "@/utils/Database";
 
@@ -49,7 +49,7 @@ export function useInitAuth() {
                 Database.onSetIsHost(profileModel?.user?.isHost)
                 Database.onSetHostId(profileModel?.user?.hostId)
                 Database.onSetLoginType(profileModel?.user?.loginType)
-                // saveToDatabase(profileModel);
+                saveToDatabase(profileModel);
 
         }else{
             dispatch(setError("No User found"))
